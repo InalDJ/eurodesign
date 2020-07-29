@@ -1,0 +1,92 @@
+<html xmlns:th="http://www.thymeLeaf.org">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование отзыва</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/css/materialize.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+<div th:if="${message == null}" class="edit_feedback_unpublished">
+<h3 class="header center cyan-text text-lighten-2">Редактирование неопубликованного отзыва</h3>
+
+<div class="row">
+    <form class="col s12" th:object="${feedback}" method="post" th:action="@{/admin/save_feedback}">
+        <input type="hidden" name="feedback_id" th:field="*{feedback_id}" >
+        <div class="row">
+
+            <div class="input-field col s6 offset-s3">
+                <i class="material-icons prefix teal-text">account_circle</i>
+
+                <input th:field="*{feedbackName}" class="validate" readonly="readonly" id="icon_prefix" type="text" name="feedbackName">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6 offset-s3">
+                <i class="material-icons teal-text prefix">mode_edit</i>
+                <textarea th:field="*{feedbackText}" required="required"  id="icon_prefix2" class="materialize-textarea validate" name="text"></textarea>
+            </div>
+        </div>
+        <div  align="center">
+            <button class="btn waves-effect waves-light" type="submit" name="submit-button" id="submit-button">Подтвердить
+                <i class="material-icons right">send</i>
+            </button>
+            &nbsp; &nbsp; &nbsp;
+
+            <a id="buttonCancel" class="waves-effect waves-light red btn">
+                <i class="material-icons right">close</i>Отмена</a>
+        </div>
+    </form>
+</div>
+</div>
+
+
+<div th:unless="${message == null}" class="edit_feedback_published">
+    <h3 th:utext="*{message}" class="header center cyan-text text-lighten-2"></h3>
+
+    <div class="row">
+        <form class="col s12" th:object="${feedbackApproved}" method="post" th:action="@{/admin/save_approvedFeedback}">
+            <input type="hidden" name="feedback_id" th:field="*{feedbackAppId}" >
+            <div class="row">
+
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix teal-text">account_circle</i>
+                    <input th:field="*{feedbackAppName}" class="validate" readonly="readonly" id="icon_prefix" type="text" name="feedbackName">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons teal-text prefix">mode_edit</i>
+                    <textarea th:field="*{feedbackAppText}" required="required"  id="icon_prefix2" class="materialize-textarea validate" name="text"></textarea>
+                </div>
+            </div>
+            <div  align="center">
+                <button class="btn waves-effect waves-light" type="submit" name="submit-button" id="submit-button">Подтвердить
+                    <i class="material-icons right">send</i>
+                </button>
+                &nbsp; &nbsp; &nbsp;
+
+                <a id="buttonCancel" class="waves-effect waves-light red btn">
+                    <i class="material-icons right">close</i>Отмена</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="/js/materialize.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#buttonCancel").click(function (){
+            history.go(-1);
+        });
+    });
+</script>
+</body>
+</html>

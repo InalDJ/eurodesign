@@ -1,0 +1,521 @@
+<html lang="ru" xmlns:th="http://www.thymeLeaf.org">
+<!DOCTYPE html>
+<head>
+    <title>Евро Дизайн - Окна и двери по доступным ценам!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css"  type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+<div id="navbar" class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a href="#navbar" class="brand-logo center"><img id="logo" src="pictures/logo.png"></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#products">Продукция</a></li>
+                <li><a href="#check_parameters">Замер</a></li>
+                <li><a href="#clients">Клиенты</a></li>
+                <li><a href="#review">Отзывы</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<ul id="slide-out" class="sidenav">
+    <li><div class="user-view">
+        <div class="background">
+            <img width="240" style="margin-left: 3%;" src="/window1.jpg">
+        </div>
+        <br/><br/><br/>
+
+    </div></li>
+    <li>
+        <p style="margin-left: 10%;" class=" subheader cyan-text text-lighten-2"> Добро пожаловать!</p>
+    </li>
+    <li><a href="#products">Продукция</a></li>
+    <li><a href="#check_parameters">Замер</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="waves-effect" href="#clients">Клиенты</a></li>
+    <li><a class="waves-effect" href="#review">Отзывы</a></li>
+    <li><a class="waves-effect" href="#contacts">Контакты</a></li>
+</ul>
+
+<div id="index-banner" class="parallax-container">
+
+    <div class="section no-pad-bot">
+        <div id="cont12" class="container">
+
+            <div class="row center" th:if="${message != null}">
+                <div class="row center">
+                    <h4 class="header center orange-text" th:text="*{message}">CallMeForm_sent message</h4>
+                    <br/>
+                    <a href="/" class="waves-effect waves-light btn-large red"><i class="material-icons left">autorenew</i>Обновить страницу</a>
+                </div>
+            </div>
+            <div th:unless="${message != null}">
+                <h3 class="header center teal-text hide-on-med-and-down">Пластиковые окна по доступным ценам</h3>
+                <h4 class="header center teal-text hide-on-large-only">Пластиковые окна по доступным ценам</h4>
+                <div class="row center">
+                    <h4 class="header orange-text col s12 light">Консультируем и замеряем - БЕСПЛАТНО!</h4>
+                </div>
+                <div class="row center">
+
+                    <a class="waves-effect waves-light btn-large cyan lighten-1 modal-trigger hide-on-med-and-down" href="#modal1"><i class="material-icons left">local_phone</i>
+                        получить консультацию</a>
+                    <a class="waves-effect waves-light btn-small cyan lighten-1 modal-trigger hide-on-large-only" href="#modal1"><i class="material-icons left">local_phone</i>
+                        получить консультацию</a>
+                </div>
+                <div class="row center">
+                    <h5 class="header teal-text col s12 light">Мы позвоним Вам и ответим на все интересующие Вас вопросы!</h5>
+                </div>
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h4 class="header teal-text center">Заказ консультации</h4>
+                        <h5 class="orange-text text-lighten-2 center">Укажите Ваше имя и номер телефона и мы Вам перезвоним!</h5>
+
+                        <div class="row">
+                            <form class="col s12" id="inputForm" th:object="${callMeForm}" method="post" th:action="@{/save_callMeForm}">
+                                <div class="row">
+                                    <div class="input-field col s4 offset-s2">
+                                        <i class="material-icons prefix cyan-text text-lighten-1">account_circle</i>
+                                        <input id="icon_prefix" type="text" maxlength="55" th:field="*{clientName}" name="firstName" placeholder="Имя:" required="required" class="validate">
+                                        <label for="icon_prefix"></label>
+                                    </div>
+                                    <div class="input-field col s4">
+                                        <i class="material-icons prefix cyan-text text-lighten-1">phone</i>
+                                        <input id="icon_telephone" type="text" th:field="*{clientPhone}" name="phone" required="required" class="validate" placeholder="928-000-0000">
+                                        <label for="icon_telephone"></label>
+                                    </div>
+                                </div>
+                                <div class="center">
+                                    <button  class="btn waves-effect waves-light cyan lighten-1" type="submit" name="submit-button2" id="submit-button2">Подтвердить
+                                        <i class="material-icons right">send</i>
+                                    </button>
+
+                                    <a class="waves-effect waves-light modal-close red btn">
+                                        <i class="material-icons right">close</i>Отмена</a>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="parallax"><img id="background_image1" th:src="@{/pictures/window_parallax.jpg}" alt="Unsplashed background img 1"></div>
+</div>
+
+
+
+<div class="container">
+    <div class="section">
+
+        <div class="row">
+            <div class="col s3">
+                <div class="icon-block">
+                    <h2 class="center brown-text"><img src="pictures/icon_shipping.png"></h2>
+                    <h6 class="center cyan-text text-lighten-1">Бесплатная доставка</h6>
+
+                    <p class="light center">Бесплатно доставим Вам окна в пределах города Черкесска</p>
+                </div>
+            </div>
+
+            <div class="col s3">
+                <div class="icon-block">
+                    <h2 class="center brown-text"><img src="pictures/icon_money.png"></h2>
+                    <h6 class="center cyan-text text-lighten-1">Цены от изготовителя</h6>
+
+                    <p class="light center">Без посредников, переплат и прочих наценок</p>
+                </div>
+            </div>
+
+            <div class="col s3">
+                <div class="icon-block">
+                    <h2 class="center brown-text"><img src="pictures/icon_time.png"></h2>
+                    <h6 class="center cyan-text text-lighten-1">Качество</h6>
+
+                    <p class="light center">Наши окна будут служить Вам более 40 лет</p>
+                </div>
+            </div>
+
+            <div class="col s3">
+                <div class="icon-block">
+                    <h3 class="center brown-text"><img src="pictures/icon_service.png"></h3>
+                    <h6 class="center cyan-text text-lighten-1">Бесплатный сервис</h6>
+
+                    <p class="light center">В течение года после установки окон cервисное обслуживание - Бесплатно!</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="products">
+    <h3 class="header center orange-text text-lighten-1">Наша продукция</h3>
+</div>
+<div class="divider"></div>
+<div>
+    <div class="row">
+        <div class="col s4">
+            <div class="card m">
+                <div class="card-image">
+                    <img class="materialboxed" src="pictures/windows_and_doors.jpg">
+                </div>
+                <div class="card-action center">
+                    <span id="product_card_text" class="card-title orange-text">Пластиковые окна и двери</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img class="materialboxed" src="pictures/window4.jpg">
+                </div>
+                <div class="card-action center">
+                    <span id="product_card_text" class="card-title orange-text">Балконы и лоджии</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img class="materialboxed" width="30%" src="../static/pictures/metal.jpg" th:src="@{pictures/metal.jpg}">
+                </div>
+                <div class="card-action center">
+                    <span id="product_card_text" class="card-title orange-text">Алюминиевые конструкции</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s4 offset-s2">
+            <div class="card">
+                <div class="card-image">
+                    <img class="materialboxed" src="pictures/roll1.jpg">
+                </div>
+                <div class="card-action center">
+                    <span id="product_card_text" class="card-title orange-text">Роллставни</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img class="materialboxed" src="pictures/under_window.jpg">
+                </div>
+                <div class="card-action center">
+                    <span id="product_card_text" class="card-title orange-text">Подоконники</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<br/>
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col m12 l4 s12">
+                <table >
+                    <tr>
+                        <td><img width="90px" src="pictures/icon_soundproof.png"></td>
+                        <td><h6>Улучшенная шумоизоляция</h6>
+                            <blockquote>Качественные пластиковые окна обеспечивают защиту от шума (до 26 дб) и больший комфорт внутри помещения,
+                                по сравнению с обычными окнами.</blockquote>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><img width="90px"  src="pictures/icon_heat.png"></td>
+                        <td><h6>Высокая теплоизоляция</h6>
+                            <blockquote>Наши окна сохраняют тепло в холодное время года позволяю сэкономить на отоплении.</blockquote>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col m12 l4 s12 center">
+                <img id="table_image" src="pictures/window_image.png">
+            </div>
+
+            <div class="col m12 l4 s12">
+                <table>
+                    <tr>
+                        <td><img width="90px"  src="pictures/icon_eco.png"></td>
+                        <td><h6>Экологичность</h6>
+                            <blockquote>Наши окна состоят из безопасных износостойких и экологичных материалов, не имеющих запахов.</blockquote>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><img width="90px"  src="pictures/icon_quality.png"></td>
+                        <td><h6>Качественные механизмы</h6>
+                            <blockquote>Ручки и запорные механизмы расчитаны на использование в течение многих лет.</blockquote>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col m12 l5 s12 offset-l3">
+                <table>
+                    <tr>
+                        <td><img width="90px"  src="pictures/icon_rst.png"></td>
+                        <td><h6>Установка по ГОСТу</h6>
+                            <blockquote>Мы применяем только качественные, сертифицированные материалы и соблюдаем все нормы при установке окон,
+                                что предотвращает проблемы при эксплуатации в будущем.</blockquote>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="check_parameters" class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+        <div class="call_div">
+            <div id="container_middle_call_form" class="container center" >
+                <div class="row">
+                    <div class="col s4">
+                        <div class="icon-block">
+                            <h2 class="center "><img src="pictures/icon_time.png"></h2>
+                            <h5 class="header center brown-text">8 лет на рынке</h5>
+                        </div>
+                    </div>
+
+                    <div class="col s4">
+                        <div class="icon-block">
+                            <h2 class="center "><img src="pictures/icon_zamer.png"></h2>
+                            <h5 class="header center brown-text">Бесплатный выезд и замер</h5>
+                        </div>
+                    </div>
+
+                    <div class="col s4">
+                        <div class="icon-block">
+                            <h2 class="center "><img src="pictures/icon_free.png"></h2>
+                            <h5 class="header center brown-text">Бесплатный демонтаж</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <h4 class="header center orange-text hide-on-med-and-down">Оставить заявку на бесплатный замер</h4>
+                        <h5 class="header center orange-text hide-on-large-only">Оставить заявку на бесплатный замер</h5>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <form class="col s12" id="inputForm2" th:object="${callMeForm}" method="post" th:action="@{/save_callMeForm}">
+
+                        <div class="input-field col s4 offset-s2">
+                            <i class="material-icons prefix cyan-text text-lighten-1">account_circle</i>
+                            <input id="icon_prefix" type="text" th:field="*{clientName}" maxlength="55" name="firstName" placeholder="Введите имя:" required="required" class="validate">
+                            <label for="icon_prefix"></label>
+                        </div>
+                        <div class="input-field col s4">
+                            <i class="material-icons prefix cyan-text text-lighten-1">phone</i>
+
+                            <input id="icon_telephone" type="text" th:field="*{clientPhone}" name="phone" placeholder="928-000-0000"  required="required" class="validate">
+                            <label for="icon_telephone"></label>
+                        </div>
+
+                        <div id="button2" class="col s5 offset-s3">
+                            <button class="btn waves-effect waves-light cyan lighten-1 small" type="submit" name="submit-button2" id="submit-button2">Отправить заявку
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="opacity: 0.9;" class="parallax"><img  src="pictures/window_parallax.jpg" alt="Unsplashed background img 2"></div>
+</div>
+
+
+<div id="clients" class="container section">
+    <h3 class="header center orange-text hide-on-med-and-down">Наша работа</h3>
+    <h4 class="header center orange-text hide-on-large-only">Наша работа</h4>
+</div>
+
+
+<div class="col s12 center">
+    <div id="carousel_works" class="carousel">
+        <div class="carousel-item" th:each="image:${listWorkDone}">
+            <div>
+                <p hidden="true" th:text="${image.imageId}"></p>
+                <img id="image_carousel_works" class="z-depth-2"  th:src="*{'data:image/jpg;base64,'+image.base64Image}">
+                <p class="cyan-text text-lighten-2 center" th:utext="${image.imageDescription}"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="review" class="container">
+    <h3 class="header center orange-text hide-on-med-and-down">Отзывы о нас</h3>
+    <h4 class="header center orange-text hide-on-large-only">Отзывы о нас</h4>
+</div>
+
+
+<div id="parallax_container_review" class="parallax-container">
+
+    <div id="carousel_review" class="carousel">
+        <div class="carousel-item" th:each="approvedFeedback:${listApprovedFeedback}">
+            <div class="card">
+                <div class="card-content center">
+                    <span th:text="${approvedFeedback.feedbackAppName}" class="orange-text">Card Title</span>
+                    <p id="review_text" class="center black-text" th:utext="${approvedFeedback.feedbackAppText}" >Text</p>
+                    <p id="p_date" class="orange-text center" th:utext="${#dates.format(approvedFeedback.feedbackAppDate, 'dd-MMM-yyyy')}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cont1" class="container center">
+        <div class="row">
+            <div class="col s12">
+                <h5 class="header center orange-text hide-on-med-and-down">Нам важно Ваше мнение</h5>
+                <h6 class="header center orange-text hide-on-large-only">Нам важно Ваше мнение</h6>
+            </div>
+        </div>
+
+        <div class="row">
+            <form class="col s12" id="inputForm3" th:object="${feedback}" method="post" th:action="@{/save}">
+
+                <div class="input-field col l3 m4 s5 offset-s1 offset-l2">
+                    <i class="material-icons prefix cyan-text text-lighten-1">account_circle</i>
+                    <input id="icon_prefix" type="text" th:field="*{feedbackName}" maxlength="55" name="firstName" placeholder="Введите имя:" required="required" class="validate">
+                    <label for="icon_prefix"></label>
+                </div>
+                <div class="input-field col l3 m4 s5">
+                    <i class="material-icons prefix cyan-text text-lighten-1">comment</i>
+
+                    <input id="icon_telephone" type="text" th:field="*{feedbackText}" name="text" placeholder="Комментарий:" maxlength="205"  required="required" class="validate">
+                    <label for="icon_telephone"></label>
+                </div>
+                <div id="button2" class="col l3 m4 offset-s3">
+                    <button class="btn-small waves-effect waves-light cyan lighten-1" type="submit" name="submit-button2" id="submit-button2">Оставить отзыв
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="review_background" class="parallax"><img src="pictures/review_background3.png"></div>
+</div>
+
+<footer id="contacts" class="page-footer">
+    <br/>
+    <div class="container">
+        <div class="row"><h4 class="yellow-text center">Евро Дизайн</h4>
+            <div class="col l6 s12">
+
+                <table>
+                    <tr>
+                        <td><img width="70px" src="pictures/icon_location.png"></td>
+                        <td><h6 class="yellow-text">Адрес:</h6>
+                            <blockquote class="white-text">369000, Карачаево-Черкесская Республика, г. Черкесск, проспект Ленина, 6</blockquote>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><img width="70px"  src="pictures/icon_cellphone.png"></td>
+                        <td><h6 class="yellow-text">Контактные телефоны:</h6>
+                            <blockquote class="white-text"> +7 (905) 420-44-27 +7 (988) 918-73-85</blockquote>
+                            <blockquote class="white-text">+7 (8782) 28-02-74 +7 (928) 384-33-07 </blockquote>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><img width="70px"  src="pictures/icon_email.png"></td>
+                        <td><h6 class="yellow-text">Email:</h6>
+                            <blockquote class="white-text">tamara.psxu@mail.ru</blockquote>
+                        </td>
+                    </tr>
+                </table>
+
+
+            </div>
+            <div id="full_map_container" class="col l6 s12 offset-s2">
+                <div id="container_map_frame" class="container">
+
+                    <div id="container_map" class="container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2858.8283216584678!2d42.0449564144432!3d44.23119282288247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4058006140585e6b%3A0x56ac547aa4dfaceb!2z0L_RgC4g0JvQtdC90LjQvdCwLCA2LCDQp9C10YDQutC10YHRgdC6LCDQmtCw0YDQsNGH0LDQtdCy0L4t0KfQtdGA0LrQtdGB0YHQutCw0Y8g0KDQtdGB0L_Rg9Cx0LvQuNC60LAsIDM2OTAwMA!5e0!3m2!1sru!2sru!4v1594731616768!5m2!1sru!2sru"
+                                                                      width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <h5 class="header center yellow-text">Мы открыты по будням с 9:00 до 18:00!</h5>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <h6 id="footnote" class="header center">ИП Псху Тамара Владимировна
+            ИНН 090109077256
+            ОГРН 319091700002336,  Карачаево-Черкесская Республика
+            369000, г. Черкесск
+            проспект Ленина, 6</h6>
+    </div>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/jquery-input-mask-phone-number.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#icon_telephone').usPhoneFormat();
+        $('.sidenav').sidenav();
+        $('.parallax').parallax();
+        $('#carousel_works').carousel({ numVisible: 7 });
+        autoplay();
+        function autoplay() {
+            $('#carousel_works').carousel('next');
+            setTimeout(autoplay, 6700);
+        }
+    });
+
+    $(document).ready(function(){
+        $('.materialboxed').materialbox();
+        $('#carousel_review').carousel();
+        autoplay();
+        function autoplay() {
+            $('#carousel_review').carousel('next');
+            setTimeout(autoplay, 8400);
+        }
+
+
+        $('.modal').modal();
+        $('.collapsible').collapsible();
+        $("#inputForm").validate();
+
+    });
+
+
+</script>
+</body>
+</html>

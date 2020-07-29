@@ -1,0 +1,772 @@
+@media only screen and (max-width : 992px) {
+	.parallax-container .section {
+		position: absolute;
+		top: 40%;
+	}
+	#index-banner .section {
+		top: 10%;
+	}
+	.parallax img {
+		max-height: 360%;
+	}
+	div #table_image{
+		width: 55%;
+	}
+
+	.call_div {
+		margin-top: -23%;
+	}
+
+
+	#container_map_frame {
+		background: rgba(178, 235, 242, 0.7);
+		border-radius: 10px;
+		height: 320px;
+		width: 420px;
+		margin: 1%;
+	}
+
+	#container_map{
+		position:relative;
+		top: 10px;
+		right: 20px;
+	}
+
+	#full_map_container {
+		margin-top: 7%;
+	}
+	#container_middle_call_form{
+		background: rgba(255,255,255,0.8);
+		border-radius: 10px;
+		margin-top: -30%;
+	}
+
+	.parallax img {
+		width: 95%;
+	}
+
+	div #table_image{
+		width: 95%;
+	}
+
+	.call_div {
+		margin-top: 1%;
+	}
+
+	#review_background img {
+		padding-top: 15%;
+		width: 20%;
+	}
+
+	#container_map_frame {
+		background: rgba(178, 235, 242, 0.7);
+		border-radius: 10px;
+		height: 320px;
+		width: 420px;
+		margin: 1%;
+	}
+
+	#container_map{
+		position:relative;
+		top: 10px;
+		right: 53px;
+	}
+
+	#full_map_container {
+		margin-top: 7%;
+	}
+	#container_middle_call_form{
+		background: rgba(255,255,255,0.8);
+		border-radius: 10px;
+	}
+
+
+	nav {
+		min-height: 30px;
+		line-height: 30px;
+		background-color: rgba(224, 247, 250, 0.8);
+	}
+
+
+	.card-content #review_text {
+		font-style: italic;
+	}
+
+	table #name_column {
+		word-wrap: break-word;
+		max-width: 90px;
+	}
+
+	table #text_column {
+		word-wrap: break-word;
+		max-width: 420px;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	.nav-wrapper ul li a {
+		color: orange;
+	}
+
+
+	body {
+		background-image: url("/static/pictures/background6.png");
+		background-repeat: repeat;
+	}
+
+	.left-side img {
+		float: left;
+		margin-right: 15px;
+		vertical-align: middle;
+	}
+
+	#cont1 {
+		background: rgba(255,255,255,0.8);
+		border-radius: 10px;
+	}
+
+
+
+	#cont12 {
+		background: rgba(224, 247, 250, 0.7);
+		border-radius: 10px;
+		margin-top: 6%;
+	}
+
+	#cont11 {
+		background: rgba(178, 235, 242, 0.7);
+		border-radius: 10px;
+	}
+
+	.parallax-container .section #cont16 {
+		background: rgba(178, 235, 242, 0.7);
+		border-radius: 10px;
+	}
+	#carousel_works{
+		min-height: 510px;
+		max-height: 900px;
+	}
+
+	#carousel_works .carousel-item{
+		width: auto;
+		margin-top: -20%;
+	}
+
+	#image_carousel_works{
+		max-height:405px;
+		max-width:300px;
+		height:auto;
+		width:auto;
+	}
+
+
+	#carousel_review {
+		min-height: 300px;
+		max-height: 350px;
+		margin-top: 1%;
+	}
+
+
+	#carousel_review .carousel-item {
+		margin-top: 1%;
+		width: 55vw;
+		max-height: 130px;
+	}
+
+	#carousel_review .carousel-item .card {
+		width: 55vw;
+		font-size: x-small;
+	}
+
+	#button2{
+		margin-top: +2%;
+	}
+
+	div .row #inputForm3 {
+		margin-top: -2%;
+	}
+
+	div.col{
+		column-gap: 450px;
+	}
+	.modal-content{
+		background-image: url("../pictures/background6.png");
+		background-repeat: repeat;
+	}
+
+	nav:hover{
+		opacity: 1;
+	}
+
+
+	#logo{
+		width: 59%;
+		opacity: 1;
+	}
+
+	p {
+		line-height: 2rem;
+	}
+
+	.sidenav-trigger {
+		color: #009688;
+	}
+
+	.card-image{
+		max-height: 340px;
+		overflow: hidden;
+	}
+
+	.parallax-container {
+		line-height: 2;
+		color: rgba(255,255,255,0.9);
+		height: 550px;
+	}
+
+	#parallax_container_review {
+		min-height: 255px;
+		max-height: 780px;
+	}
+
+	.parallax-container .section {
+		width: 100%;
+	}
+
+	blockquote{
+		border-left: 5px solid orange;
+	}
+
+
+
+	.divider {
+		border-top: 1px black; !important;
+		border-bottom: 1px black ; !important;
+	}
+
+	#map, #map2 {
+		border: 2px solid black;
+		width: auto;
+		height: 30px;
+	}
+
+	.footer-copyright #footnote {
+		margin-left: 12%;
+	}
+
+	.icon-block {
+		padding: 0 15px;
+	}
+	.icon-block .material-icons {
+		font-size: inherit;
+	}
+
+	footer.page-footer {
+		margin: 0;
+		background-color: #00acc1 ;
+		opacity: 0.9;
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width : 600px) {
+	#index-banner .section {
+		top: 0;
+	}
+	.parallax img {
+		max-height: 130%;
+	}
+	div #table_image{
+		width: 40%;
+	}
+	.call_div {
+		margin-top: -7%;
+	}
+
+	#container_middle_call_form{
+		background: rgba(255,255,255,0.8);
+		border-radius: 10px;
+		margin-top: -36%;
+	}
+
+	.parallax img {
+		width: 95%;
+	}
+
+	div #table_image{
+		width: 95%;
+	}
+
+	.call_div {
+		margin-top: 1%;
+	}
+
+	#review_background img {
+		padding-top: 15%;
+		width: 20%;
+	}
+
+	#container_map_frame {
+		background: rgba(178, 235, 242, 0.7);
+		border-radius: 10px;
+		height: 320px;
+		width: 420px;
+		margin-left: -10%;
+	}
+
+	#container_map{
+		position:relative;
+		top: 3%;
+		right: 3%;
+	}
+
+	#full_map_container {
+		margin-top: 7%;
+	}
+	#container_middle_call_form{
+		background: rgba(255,255,255,0.8);
+		border-radius: 10px;
+	}
+
+
+	nav {
+		min-height: 30px;
+		line-height: 30px;
+		background-color: rgba(224, 247, 250, 0.8);
+	}
+
+
+	.card-content #review_text {
+		font-style: italic;
+	}
+
+	table #name_column {
+		word-wrap: break-word;
+		max-width: 90px;
+	}
+
+	table #text_column {
+		word-wrap: break-word;
+		max-width: 410px;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	.nav-wrapper ul li a {
+		color: orange;
+	}
+
+
+	body {
+		background-image: url("/static/pictures/background6.png");
+		background-repeat: repeat;
+	}
+
+	.left-side img {
+		float: left;
+		margin-right: 15px;
+		vertical-align: middle;
+	}
+
+	#cont1 {
+		background: rgba(255,255,255,0.8);
+		border-radius: 10px;
+	}
+
+
+
+	#cont12 {
+		background: rgba(224, 247, 250, 0.7);
+		border-radius: 10px;
+		margin-top: 6%;
+	}
+
+	#cont11 {
+		background: rgba(178, 235, 242, 0.7);
+		border-radius: 10px;
+	}
+
+	.parallax-container .section #cont16 {
+		background: rgba(178, 235, 242, 0.7);
+		border-radius: 10px;
+	}
+	#carousel_works{
+		min-height: 400px;
+		max-height: 500px;
+	}
+
+	#carousel_works .carousel-item{
+		width: auto;
+		margin-top: -10%;
+	}
+
+	#image_carousel_works{
+		max-height:345px;
+		max-width:238px;
+		height:auto;
+		width:auto;
+	}
+
+	#carousel_review {
+		min-height: 300px;
+		max-height: 350px;
+		margin-top: 1%;
+	}
+
+
+	#carousel_review .carousel-item {
+		margin-top: -3%;
+		width: 53vw;
+
+	}
+
+	#carousel_review .carousel-item .card {
+		width: 53vw;
+	}
+
+	#button2{
+		margin-top: +2%;
+	}
+
+	div .row #inputForm3 {
+		margin-top: -2%;
+	}
+
+	div.col{
+		column-gap: 450px;
+	}
+	.modal-content{
+		background-image: url("../pictures/background6.png");
+		background-repeat: repeat;
+	}
+
+	nav:hover{
+		opacity: 1;
+	}
+
+	#logo{
+		width: 54%;
+	}
+
+	p {
+		line-height: 2rem;
+	}
+
+	.sidenav-trigger {
+		color: #009688;
+	}
+
+	.card-image{
+		max-height: 340px;
+		overflow: hidden;
+	}
+
+	.parallax-container {
+		line-height: 2;
+		color: rgba(255,255,255,0.9);
+		height: 550px;
+	}
+
+	#parallax_container_review {
+		min-height: 255px;
+		max-height: 780px;
+	}
+
+	.parallax-container .section {
+		width: 100%;
+	}
+
+	blockquote{
+		border-left: 5px solid orange;
+	}
+
+	#product_card_text{
+		font-size: medium;
+	}
+
+
+	.divider {
+		border-top: 1px black; !important;
+		border-bottom: 1px black ; !important;
+	}
+
+	#map, #map2 {
+		border: 2px solid black;
+		width: auto;
+		height: 30px;
+	}
+
+	.footer-copyright #footnote {
+		margin-left: 12%;
+	}
+
+	.icon-block {
+		padding: 0 15px;
+	}
+	.icon-block .material-icons {
+		font-size: inherit;
+	}
+
+	footer.page-footer {
+		margin: 0;
+		background-color: #00acc1 ;
+		opacity: 0.9;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 993px) {
+	.parallax img {
+		width: 95%;
+	}
+
+	div #table_image{
+		width: 95%;
+	}
+
+	.call_div {
+		margin-top: 1%;
+	}
+
+	#review_background img {
+		padding-top: 15%;
+		width: 20%;
+	}
+
+	#container_map_frame {
+		background: rgba(178, 235, 242, 0.7);
+		border-radius: 10px;
+		height: 320px;
+		width: 420px;
+		margin: 1%;
+	}
+
+	#container_map{
+		position:relative;
+		top: 10px;
+		right: 53px;
+	}
+
+	#full_map_container {
+		margin-top: 7%;
+	}
+	#container_middle_call_form{
+		background: rgba(255,255,255,0.8);
+		border-radius: 10px;
+	}
+
+
+	nav {
+		min-height: 60px;
+		line-height: 60px;
+		background-color: rgba(224, 247, 250, 0.8);
+	}
+
+
+	.card-content #review_text {
+		font-style: italic;
+	}
+
+	table #name_column {
+		word-wrap: break-word;
+		max-width: 90px;
+	}
+
+	table #text_column {
+		word-wrap: break-word;
+		max-width: 420px;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	.nav-wrapper ul li a {
+		color: orange;
+	}
+
+
+	body {
+		background-image: url("/static/pictures/background6.png");
+		background-repeat: repeat;
+	}
+
+	.left-side img {
+		float: left;
+		margin-right: 15px;
+		vertical-align: middle;
+	}
+
+	#cont1 {
+		background: rgba(255,255,255,0.8);
+		border-radius: 10px;
+	}
+
+
+
+	#cont12 {
+		background: rgba(224, 247, 250, 0.7);
+		border-radius: 10px;
+		margin-top: 6%;
+	}
+
+	#cont11 {
+		background: rgba(178, 235, 242, 0.7);
+		border-radius: 10px;
+	}
+
+	.parallax-container .section #cont16 {
+		background: rgba(178, 235, 242, 0.7);
+		border-radius: 10px;
+	}
+	#carousel_works{
+		min-height: 540px;
+		max-height: 900px;
+	}
+
+	#carousel_works .carousel-item{
+		width: auto;
+		margin-top: -10%;
+	}
+
+	#image_carousel_works{
+		max-height:415px;
+		max-width:350px;
+		height:auto;
+		width:auto;
+	}
+
+
+	#carousel_review {
+		min-height: 300px;
+		max-height: 350px;
+		margin-top: 1%;
+	}
+
+
+	#carousel_review .carousel-item {
+		margin-top: -3%;
+		width: 30vw;
+	}
+
+	#carousel_review .carousel-item .card {
+		width: 40vw;
+	}
+
+	#button2{
+		margin-top: +2%;
+	}
+
+	div .row #inputForm3 {
+		margin-top: -2%;
+	}
+
+	div.col{
+		column-gap: 450px;
+	}
+	.modal-content{
+		background-image: url("../pictures/background6.png");
+		background-repeat: repeat;
+	}
+
+	nav:hover{
+		opacity: 1;
+	}
+
+	#logo{
+		width: 60%;
+	}
+
+	p {
+		line-height: 2rem;
+	}
+
+	.sidenav-trigger {
+		color: #009688;
+	}
+
+	.card-image{
+		max-height: 340px;
+		overflow: hidden;
+	}
+
+	.parallax-container {
+		line-height: 2;
+		color: rgba(255,255,255,0.9);
+		height: 550px;
+	}
+
+	#parallax_container_review {
+		min-height: 255px;
+		max-height: 780px;
+	}
+
+	.parallax-container .section {
+		width: 100%;
+	}
+
+	blockquote{
+		border-left: 5px solid orange;
+	}
+
+
+
+	.divider {
+		border-top: 1px black; !important;
+		border-bottom: 1px black ; !important;
+	}
+
+	#map, #map2 {
+		border: 2px solid black;
+		width: auto;
+		height: 30px;
+	}
+
+	.footer-copyright #footnote {
+		margin-left: 12%;
+	}
+
+	.icon-block {
+		padding: 0 15px;
+	}
+	.icon-block .material-icons {
+		font-size: inherit;
+	}
+
+	footer.page-footer {
+		margin: 0;
+		background-color: #00acc1 ;
+		opacity: 0.9;
+	}
+
+}
+

@@ -1,0 +1,414 @@
+<html xmlns:th="http://www.thymeLeaf.org"
+      xmlns:sec="https://www.thymeLeaf.org/thymeleaf-extras-springsecurity5">
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/css/materialize.css"  media="screen,projection"/>
+    <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+
+<div id="navbar" class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a href="#navbar" class="brand-logo center"><h6 class="header red-text text-lighten-1">Администратор</h6></a>
+            <ul class="left hide-on-med-and-down">
+                <li><a class="truncate red-text left" href="#review_unpublished"><b>Неопубликованные отзывы</b></a></li>
+                <li><a class="red-text left" href="#feedback_published"><b>Отзывы для публикации</b></a></li>
+            </ul>
+
+            <ul class="right hide-on-med-and-down">
+                <li><a class="red-text" href="#work_done_upload"><b>Загрузка фото</b></a></li>
+                <li><a class="red-text" href="#work_done_carousel"><b>Галерея фото</b></a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+</div>
+<ul id="slide-out" class="sidenav">
+    <li><div class="user-view">
+        <div class="background">
+            <img width="240" style="margin-left: 3%;" src="/window1.jpg">
+        </div>
+        <br/><br/><br/>
+
+    </div></li>
+    <li sec:authorize="isAuthenticated()">
+        <p style="margin-left: 10%;" class="teal-text text-lighten-2"> Добро пожаловать,
+            <span class="orange-text text-lighten-2" sec:authentication="name"></span></p>
+    </li>
+    <li> <a class="subheader cyan-text text-lighten-2">Панель администратора</a></li>
+    <li><a href="#review_unpublished">Неопубликованные отзывы</a></li>
+    <li><a href="#feedback_published">Отзывы для публикации</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="waves-effect" href="#work_done_upload">Загрузка фото</a></li>
+    <li><a class="waves-effect" href="#work_done_carousel">Галерея фото</a></li>
+    <li>  <form class="center" th:action="@{/logout}" method="post">
+        <button class="btn-small waves-effect waves-light red lighten-1" value="Logout" type="submit" name="submit-button2" id="submit-button2">Выйти
+            <i class="material-icons left">subdirectory_arrow_left</i>
+        </button>
+    </form>
+    </li>
+</ul>
+
+<div class="container" sec:authorize="isAuthenticated()">
+    <div class="row center">
+        <div class="col s12">
+            <h6 style="display: inline; clear: none;" class="header center teal-text text-lighten-2"> Добро пожаловать, </h6>
+            <h6 style="display: inline; clear: none;" class="header center orange-text text-lighten-2" sec:authentication="name"><b><i></i></b></h6>
+        </div>
+    </div>
+    <div class="row center">
+        <div class="col s12">
+            <h6 style="display: inline; clear: none;" class="header center teal-text text-lighten-2"> Ваш уровень доступа - </h6>
+            <h6 style="display: inline; clear: none;" class="header center orange-text text-lighten-2" sec:authentication="principal.authorities"><b><i></i></b></h6>
+            <div class="col s12">
+                <form th:action="@{/logout}" method="post">
+                    <br/>
+                    <button class="btn-small waves-effect waves-light red lighten-1" value="Logout" type="submit" name="submit-button2" id="submit-button2">Выйти
+                        <i class="material-icons left">subdirectory_arrow_left</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div th:if="${message != null}">
+    <h5 class="header center red-text" th:text="*{message}">Incorrect format message</h5>
+    <div class="center">
+        <a href="/admin/" class="waves-effect waves-light btn-large red"><i class="material-icons left">autorenew</i>Обновить страницу</a>
+    </div>
+
+</div>
+
+<div class="row">
+    <h3 class="header cyan-text text-lighten-2 center hide-on-med-and-down">Панель Администратора</h3>
+    <h4 class="header cyan-text text-lighten-2 center hide-on-large-only">Панель Администратора</h4>
+    <h4 class="header orange-text text-accent-2 center truncate hide-on-med-and-down">Заявки на консультацию</h4>
+    <h5 class="header orange-text text-accent-2 center truncate hide-on-large-only">Заявки на консультацию</h5>
+</div>
+
+<div>
+    <table class="highlight centered">
+        <thead>
+        <tr>
+            <th>№:</th>
+            <th>Имя клиента:</th>
+            <th>Номер телефона:</th>
+            <th>Дата заявки:</th>
+            <th>Действия:</th>
+        </tr>
+        </thead>
+        <div th:if="${listCallMeForm != null and !listCallMeForm.isEmpty()}">
+            <tbody>
+            <tr th:each="callMeForm,iterator:${listCallMeForm}">
+                <td hidden="true" th:text="${callMeForm.clientId}">Index</td>
+                <td th:text="${iterator.index+1}">Index</td>
+                <td th:text="${callMeForm.clientName}">Name</td>
+                <td th:text="${callMeForm.clientPhone}">Text</td>
+                <td th:text="${callMeForm.clientDate}">Text</td>
+                <td>                    &nbsp;&nbsp;
+                    <a class="red-text text-lighten-2" sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{'/admin/delete_callMeForm/' + ${callMeForm.clientId}}">Удалить</a>
+                </td>
+            </tr>
+            </tbody>
+        </div>
+        <div th:unless="${listCallMeForm != null and !listCallMeForm.isEmpty()}">
+            <tbody>
+            <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>Нет доступных действий</td>
+            </tr>
+            </tbody>
+        </div>
+    </table>
+</div>
+<br/><br/><br/><br/>
+
+<div id="review_unpublished" class=""center>
+    <br/><br/><br/>
+    <h4 class="header orange-text text-accent-2 center truncate hide-on-med-and-down">Неопубликованные отзывы</h4>
+    <h5 class="header orange-text text-accent-2 center truncate hide-on-large-only">Неопубликованные отзывы</h5>
+</div>
+<div>
+    <table class="highlight centered striped">
+        <thead>
+        <tr>
+            <th>№:</th>
+            <th>Имя комментатора:</th>
+            <th>Отзыв:</th>
+            <th>Действия:</th>
+        </tr>
+        </thead>
+        <div th:if="${listFeedback != null and !listFeedback.isEmpty()}">
+            <tbody>
+            <tr th:each="feedback,iterator:${listFeedback}">
+                <td hidden="true" th:text="${feedback.feedback_id}">Index</td>
+                <td th:text="${iterator.index+1}">Index</td>
+                <td id="name_column" th:text="${feedback.feedbackName}">Name</td>
+                <td id="text_column" th:text="${feedback.feedbackText}">Text</td>
+                <td>
+                    <a sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR')" th:href="@{'/admin/publish_approvedFeedback/' + ${feedback.feedback_id}}" name="buttonCancel" class="waves-effect waves-light teal btn-small">
+                        <i class="material-icons right">send</i>Опубликовать</a>
+                    &nbsp;&nbsp;
+                    <a sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR')" th:href="@{'/admin/edit/' + ${feedback.feedback_id}}">Редактировать</a>
+                    &nbsp;&nbsp;
+                    <a class="red-text text-lighten-2" sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{'/admin/delete/' + ${feedback.feedback_id}}">Удалить</a>
+                </td>
+            </tr>
+
+            </tbody>
+        </div>
+
+        <div th:unless="${listFeedback != null and !listFeedback.isEmpty()}">
+            <tbody>
+            <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>Нет доступных действий</td>
+            </tr>
+            </tbody>
+        </div>
+    </table>
+</div>
+<br/><br/><br/><br/>
+
+<div id="feedback_published" class="row">
+    <br/><br/><br/>
+    <h4 class="header orange-text text-accent-2 center truncate hide-on-med-and-down">Отзывы для публикации на сайте</h4>
+    <h5 class="header orange-text text-accent-2 center truncate hide-on-large-only">Отзывы для публикации на сайте</h5>
+</div>
+
+
+
+<table class="highlight centered">
+    <thead>
+    <tr>
+        <th>№:</th>
+        <th>Имя комментатора:</th>
+        <th>Отзыв:</th>
+        <th>Дата Публикации:</th>
+        <th>Действия:</th>
+    </tr>
+    </thead>
+    <div th:if="${listApprovedFeedback != null and !listApprovedFeedback.isEmpty()}">
+        <tbody>
+        <tr th:each="approvedFeedback,iterator:${listApprovedFeedback}">
+            <td hidden="true" th:text="${approvedFeedback.feedbackAppId}">Index</td>
+            <td th:text="${iterator.index+1}">Index</td>
+            <td th:text="${approvedFeedback.feedbackAppName}">Name</td>
+            <td th:text="${approvedFeedback.feedbackAppText}">Text</td>
+            <td th:utext="${#dates.format(approvedFeedback.feedbackAppDate, 'dd-MMM-yyyy')}">Text</td>
+            <td>
+                <a sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR')" th:href="@{'/admin/edit_approvedFeedback/' + ${approvedFeedback.feedbackAppId}}">Редактировать</a>
+                &nbsp;&nbsp;
+                <a class="red-text text-lighten-2" sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{'/admin/delete_approvedFeedback/' + ${approvedFeedback.feedbackAppId}}">Удалить</a>
+            </td>
+        </tr>
+        </tbody>
+    </div>
+    <div th:unless="${listApprovedFeedback != null and !listApprovedFeedback.isEmpty()}">
+        <tbody>
+        <tr>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>Нет доступных действий</td>
+        </tr>
+        </tbody>
+    </div>
+</table>
+<br/><br/><br/><br/>
+
+<div>
+    <h5 class="header center orange-text text-lighten-2">Предпросмотр секции отзывов</h5>
+</div>
+
+
+<div id="parallax_container_review" class="parallax-container">
+
+    <div id="carousel_review" class="carousel">
+        <div class="carousel-item" th:each="approvedFeedback:${listApprovedFeedback}">
+            <div class="card">
+                <div class="card-content center">
+                    <span th:text="${approvedFeedback.feedbackAppName}" class="orange-text">Card Title</span>
+                    <p id="review_text" class="center black-text" th:utext="${approvedFeedback.feedbackAppText}" >Text</p>
+                    <p id="p_date" class="orange-text center" th:utext="${#dates.format(approvedFeedback.feedbackAppDate, 'dd-MMM-yyyy')}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cont1" class="container center">
+        <div class="row">
+            <div class="col s12">
+                <h5 class="header center orange-text hide-on-med-and-down">Нам важно Ваше мнение</h5>
+                <h6 class="header center orange-text hide-on-large-only">Нам важно Ваше мнение</h6>
+            </div>
+        </div>
+
+        <div class="row">
+            <form class="col s12" >
+
+                <div class="input-field col l3 m4 s5 offset-s1 offset-l2">
+                    <i class="material-icons prefix cyan-text text-lighten-1">account_circle</i>
+                    <input id="icon_prefix" type="text"  maxlength="55" name="firstName" placeholder="Введите имя:" required="required" class="validate">
+                    <label for="icon_prefix"></label>
+                </div>
+                <div class="input-field col l3 m4 s5">
+                    <i class="material-icons prefix cyan-text text-lighten-1">comment</i>
+
+                    <input id="icon_telephone" type="text" name="text" placeholder="Комментарий:" maxlength="205"  required="required" class="validate">
+                    <label for="icon_telephone"></label>
+                </div>
+                <div id="button2" class="col l3 m4 offset-s3">
+                    <button class="btn-small waves-effect waves-light cyan lighten-1" type="submit">Оставить отзыв
+                        <i class="material-icons right disabled">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="review_background" class="parallax"><img src="/review_background3.png"></div>
+</div>
+<br/><br/><br/>
+<div id="work_done_upload">
+    <br/><br/><br/>
+    <h4 class="header orange-text text-lighten-2 truncate center hide-on-med-and-down">Загрузка фотографий выполненных работ</h4>
+    <h5 class="header orange-text text-lighten-2 truncate center hide-on-large-only">Загрузка фотографий выполненных работ</h5>
+</div>
+<div class="container">
+    <div class="col s4 offset-s4">
+        <form method="post" th:object="${workDone}" th:action="@{/admin/save_workDone}" enctype="multipart/form-data">
+            <div class="row">
+                <div class="file-field input-field col s4 offset-s4">
+                    <div class="btn cyan">
+                        <span>Фото</span>
+                        <input name="imageFile" type="file" accept=".jpg, .jpeg, .png" class="validate" required="required">
+                    </div>
+
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate"  type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix cyan-text">mode_edit</i>
+                    <input id="icon_prefix" th:field="*{imageDescription}" required="required" type="text" class="validate">
+                    <label for="icon_prefix">Описание фото</label>
+                </div>
+            </div>
+            <div class="row center">
+                <button class="btn waves-effect waves-light cyan lighten-2" type="submit" name="action">Загрузить
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<br/>
+
+
+
+<div>
+    <h4 class="header orange-text text-lighten-2 truncate center hide-on-med-and-down">Список фотографий</h4>
+    <h5 class="header orange-text text-lighten-2 truncate center hide-on-large-only">Список фотографий</h5>
+</div>
+<div>
+    <table class="highlight centered striped">
+        <thead>
+        <tr>
+            <th>№:</th>
+            <th>Фото:</th>
+            <th>Описание:</th>
+            <th>Действия:</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="image,iterator:${listWorkDone}">
+            <td hidden="true" th:text="${image.imageId}">Id</td>
+            <td th:text="${iterator.index+1}">Index</td>
+            <td><img width="85" th:src="*{'data:image/jpg;base64,'+image.base64Image}"></td>
+            <td th:utext="${image.imageDescription}">Description</td>
+            <td>
+                <a sec:authorize="hasAnyAuthority('ADMIN', 'EDITOR')" class="red-text text-lighten-2" th:href="@{'/admin/delete_workDone/' + ${image.imageId}}"><b>Удалить</b></a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div id="work_done_carousel" class="col s12">
+            <br/><br/>
+            <h4 class="header center orange-text truncate hide-on-med-and-down">Предпросмотр галереи выполненных работ</h4>
+            <h5 class="header center orange-text truncate hide-on-large-only">Предпросмотр галереи выполненных работ</h5>
+        </div>
+    </div>
+</div>
+<div id="carousel_works" class="carousel">
+    <div class="carousel-item" th:each="image:${listWorkDone}">
+        <div>
+            <p hidden="true" th:text="${image.imageId}"></p>
+            <img class="z-depth-2" style="max-height:440px;max-width:330px;height:auto;width:auto;" th:src="*{'data:image/jpg;base64,'+image.base64Image}">
+            <p class="cyan-text text-lighten-2 center" th:utext="${image.imageDescription}"></p>
+        </div>
+    </div>
+</div>
+
+
+
+<script th:src="@{https://code.jquery.com/jquery-2.1.1.min.js}"></script>
+<script type="text/javascript" src="/js/materialize.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+        $('#carousel_works').carousel({ numVisible: 7 });
+        autoplay();
+        function autoplay() {
+            $('#carousel_works').carousel('next');
+            setTimeout(autoplay, 15500);
+        }
+    });
+
+    $(document).ready(function(){
+
+        $('#carousel_review').carousel();
+        autoplay();
+        function autoplay() {
+            $('#carousel_review').carousel('next');
+            setTimeout(autoplay, 8400);
+        }
+
+    });
+
+
+</script>
+</body>
+
+
+</html>
