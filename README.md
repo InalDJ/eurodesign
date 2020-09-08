@@ -20,3 +20,20 @@ Technologies used:
 
 -Backend: Spring boot, Hibernate, Tomcat, Spring Security. CRUD operation are tested with Junit and Mockito.
 -Frontend: HTML, CSS, Jquery for validation and animation and thymeleaf for integration with Spring.
+
+
+You can check my copy of this website here is a link:
+http://eurodesign009.tk/
+
+Admin Page:
+http://eurodesign009.tk/admin/
+
+Roles:
+Admin. Can perfom all CRUD operations
+Username: admin
+Password: admin
+
+
+Editor. Cannot perfom "delete" operations.
+Username: editor
+Password: editor
