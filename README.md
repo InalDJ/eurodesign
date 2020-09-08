@@ -1,5 +1,5 @@
 # eurodesign
-This is a simple Spring boot app created for a real customer
+This is a website for a real customer. The website in production is on another server and domain. This is a copy located on my vps for demonstration purposes.
 
 Website functionalities:
 
@@ -10,7 +10,7 @@ Website functionalities:
 - Role-based authorization is implemented with Spring Security with a custom login form. There are two roles: Admin and Editor.
 - Password are encrypted with the BCrypt encoder.
 - Admin can edit, delete and publish feedback, publish photos. Editor can edit but doesn't have the authority to delete feedback and call me forms. 
-Inaccessible actions buttons aren't seen by editor, but are visible by admin.
+Inaccessible action buttons can't be seen by editor, but are visible by admin.
 - Admin and editor can upload photos to the website. Such photos must be of a certain format, if not an error message appears.
 - Photos and feedback are displayed on the administration page to see if they are displayed properly on the website or not.
 
